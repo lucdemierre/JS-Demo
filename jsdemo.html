@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS DEMO</title>
+
+</head>
+<body>
+    <H1 id= "Test Paragraph"></H1>
+    <H1 id="What do you like doing?"></H1>
+    <form>
+        <input id="num1" type="number">
+        <br>
+        <button type="button" onclick="demofunction()">Click Me</button>
+    </form>
+
+<script>
+        placetoput=document.getElementById("Test Paragraph");
+        placetoput.innerHTML="Hello";
+        //document.write("hello");
+        function demofunction(){
+            var x = document.getElementById("num1").value                 
+            y = x*x;
+            alert(y);
+            placetoput.innerHTML=y;
+        }
+</script>
+</body>
+</html>

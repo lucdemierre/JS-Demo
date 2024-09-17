@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Roll</title>
+    <style>
+        body {
+            font-family: monospace;
+            white-space: pre;
+        }
+    </style>
+</head>
+
+<body>
+    <H1 id= "Dice"></H1>
+</body>
+<script>
+    function drawdice() {
+        const diceface= [
+            "ooooooooo",
+            "o       o",
+            "o #   # o",
+            "o   #   o",
+            "o #   # o",
+            "o       o",
+            "ooooooooo"
+        ];
+        document.getElementById('Dice').textContent = diceface.join("\n");
+    }
+    drawdice();
+</script>
+
+</body>
+</html>
