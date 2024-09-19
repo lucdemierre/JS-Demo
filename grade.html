@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Challenge</title>
+    <script>
+        function calculateGrade() {
+
+            var analysis = parseInt(document.getElementById("analysis").value) || 0;
+            var design = parseInt(document.getElementById("design").value) || 0;
+            var implementation = parseInt(document.getElementById("implementation").value) || 0;
+            var evaluation = parseInt(document.getElementById("evaluation").value) || 0;
+
+            var totalMarks = analysis + design + implementation + evaluation;
+            var grade, nextBandMarks;
+
+
+            switch (true) {
+                case totalMarks < 4:
+                    grade = "U";
+                    nextBandMarks = 4 - totalMarks;
+                    break;
+                case totalMarks < 13:
+                    grade = "G";
+                    nextBandMarks = 13 - totalMarks;
+                    break;
+                case totalMarks < 22:
+                    grade = "F";
+                    nextBandMarks = 22 - totalMarks;
+                    break;
+                case totalMarks < 31:
+                    grade = "E";
+                    nextBandMarks = 31 - totalMarks;
+                    break;
+                case totalMarks < 41:
+                    grade = "D";
+                    nextBandMarks = 41 - totalMarks;
+                    break;
+                case totalMarks < 54:
+                    grade = "C";
+                    nextBandMarks = 54 - totalMarks;
+                    break;
+                case totalMarks < 67:
+                    grade = "B";
+                    nextBandMarks = 67 - totalMarks;
+                    break;
+                case totalMarks < 80:
+                    grade = "A";
+                    nextBandMarks = 80 - totalMarks;
+                    break;
+                default:
+                    grade = "A*";
+                    nextBandMarks = 0; 
+                    break;
+            }
+
+            document.getElementById("output").innerHTML = 
+                "Total Marks: " + totalMarks + "<br>" +
+                "Grade: " + grade + "<br>" +
+                (nextBandMarks > 0 ? "Marks needed for next band: " + nextBandMarks : "You are at the highest grade!");
+        }
+    </script>
+</head>
+<body>
+    <h1>Portfolio Grade Calculator</h1>
+    
+
+    <label for="analysis">Analysis (out of 25): </label>
+    <input type="number" id="analysis" min="0" max="25" value="0"><br><br>
+    
+    <label for="design">Design (out of 25): </label>
+    <input type="number" id="design" min="0" max="25" value="0"><br><br>
+    
+    <label for="implementation">Implementation (out of 25): </label>
+    <input type="number" id="implementation" min="0" max="25" value="0"><br><br>
+    
+    <label for="evaluation">Evaluation (out of 25): </label>
+    <input type="number" id="evaluation" min="0" max="25" value="0"><br><br>
+    
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+
+    <p id="output"></p>
+
+</body>
+</html>
