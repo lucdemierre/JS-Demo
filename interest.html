@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compound Average Calculator</title>
+    
+</head>
+<body>
+    <h1>Compound Interest Calculator</h1>
+    
+    <p>Current Balance (£): <input type="number" id="balance" placeholder="e.g. 100"></p>
+    <p>Interest Rate (decimal): <input type="number" id="rate" placeholder="e.g. 0.04"></p>
+    <p>Desired Balance (£): <input type="number" id="target" placeholder="e.g. 150"></p>
+    
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="output"></div>
+
+    <script>
+        function calculate() {
+            let balance = parseFloat(document.getElementById('balance').value);
+            const rate = parseFloat(document.getElementById('rate').value);
+            const target = parseFloat(document.getElementById('target').value);
+            let year = 0;
+            let output = '';
+
+            while (balance < target) {
+                balance += balance * rate;
+                year++;
+                output += `Year ${year}: £${balance.toFixed(2)}<br>`;
+            }
+
+            document.getElementById('output').innerHTML = output;
+        }
+    </script>
+</body>
+</html>

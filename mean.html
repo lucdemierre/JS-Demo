@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mean</title>
+    
+</head>
+<body>
+    <h1>Average Calculator</h1>
+    <p>Enter how many numbers to average:</p>
+    <input type="number" id="numCount" min="1" placeholder="Count">
+    <button onclick="getNumbers()">Submit</button>
+
+    <div id="inputs"></div>
+    <div id="result"></div>
+
+    <script>
+        function getNumbers() {
+            let numCount = document.getElementById('numCount').value;
+            let inputs = '';
+
+            for (let i = 0; i < numCount; i++) {
+                inputs += `<input type="number" id="num${i}" placeholder="Number ${i+1}"><br>`;
+            }
+            inputs += `<button onclick="calculate(${numCount})">Calculate</button>`;
+            document.getElementById('inputs').innerHTML = inputs;
+        }
+
+        function calculate(numCount) {
+            let total = 0;
+            for (let i = 0; i < numCount; i++) {
+                total += parseFloat(document.getElementById(`num${i}`).value) || 0;
+            }
+            let average = total / numCount;
+            document.getElementById('result').innerHTML = `Total: ${total}, Average: ${average}`;
+        }
+    </script>
+</body>
+</html>
